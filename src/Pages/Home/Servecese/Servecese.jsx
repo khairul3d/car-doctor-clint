@@ -8,7 +8,7 @@ const Servecese = () => {
     const [services, setSurvices] = useState([])
 
     useEffect(()=>{
-        fetch('servicese.json')
+        fetch('http://localhost:5000/servises')
         .then(res => res.json())
         .then(data => setSurvices(data))
         console.log(data);

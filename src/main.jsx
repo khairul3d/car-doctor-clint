@@ -10,6 +10,9 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Signup from './Signup/Signup';
 import AuthProvider from './Provider/AuthProvider';
+import Chackout from './Pages/Chackout/Chackout';
+import Private from './Pages/Private/Private';
+import ChackoutBooking from './Pages/ChackoutBooking/ChackoutBooking';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,15 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup></Signup>
+      },
+      {
+        path: 'chackout/:id',
+        element: <Private><Chackout></Chackout></Private>,
+        loader: ({params}) => fetch(`http://localhost:5000/servises/${params.id}`)
+      },
+      {
+        path: '/booking',
+        element: <Private><ChackoutBooking></ChackoutBooking></Private>
       }
     ]
   },
